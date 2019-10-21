@@ -1,0 +1,22 @@
+sudo: required
+language: go
+
+services:
+- docker
+
+env:
+  global:
+  # Quay user
+  - secure: ???
+  # Quay pass
+  - secure: ???
+
+script:
+- make -e docker-build docker-images
+
+deploy:
+  provider: script
+  script:
+  - make -e docker-push
+  on:
+    tags: true

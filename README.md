@@ -1,4 +1,5 @@
 # aws-cli
+[![Docker Repository on Quay](https://quay.io/repository/virtuslab/aws-cli/status "Docker Repository on Quay")](https://quay.io/repository/virtuslab/aws-cli)
 [![Build Status](https://secure.travis-ci.org/VirtusLab/aws-cli.svg?branch=master)](http://travis-ci.org/VirtusLab/aws-cli)
 
 Yet Another Dockerized [AWS CLI](https://aws.amazon.com/cli/)
