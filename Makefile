@@ -31,10 +31,12 @@ ifneq ($(TRAVIS_TAG),)
 	override LATEST_TAG := latest
 endif
 
+ARGS ?= $(EXTRA_ARGS)
+
 .DEFAULT_GOAL := help
 
 .PHONY: all
-all: docker-build docker-images ## Runs a docker-build, docker-images
+all: status docker-build docker-images ## Build the image
 	@echo "+ $@"
 
 .PHONY: docker-build
@@ -62,12 +64,20 @@ docker-push: docker-login ## Push the container
 	@docker push $(DOCKER_REGISTRY)/$(REPO):$(VERSION_TAG)
 	@docker push $(DOCKER_REGISTRY)/$(REPO):$(LATEST_TAG)
 
+# if this session isn't interactive, then we don't want to allocate a
+# TTY, which would fail, but if it is interactive, we do want to attach
+# so that the user can send e.g. ^C through.
+INTERACTIVE := $(shell [ -t 0 ] && echo 1 || echo 0)
+ifeq ($(INTERACTIVE), 1)
+    DOCKER_FLAGS += -t
+endif
+
 .PHONY: docker-run
-docker-run: docker-build ## Build and run the container
+docker-run: docker-build ## Build and run the container, you can use EXTRA_ARGS
 	@echo "+ $@"
-	docker run -i -t \
+	docker run --rm -i $(DOCKER_FLAGS) \
 		--mount type=bind,source=$(HOME)/.aws,target=/root/.aws \
-		$(REPO):$(GITCOMMIT)
+		$(REPO):$(GITCOMMIT) $(ARGS)
 
 .PHONY: tag
 tag: ## Create a new git tag to prepare to build a release
