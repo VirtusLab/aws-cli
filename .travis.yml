@@ -6,10 +6,10 @@ services:
 
 env:
   global:
-  # Quay user
-  - secure: ???
-  # Quay pass
-  - secure: ???
+    # Quay user
+    - secure: "Pa8i0zxXjdVGkONCLUZAbxFma5cDu/VGYHeH86+CaCnJ00IazjerwlYrJOYkcuT7shJikZyUsZV2H76oiAX76WT6t9bH/NNCXXxmcG+Fp2vPV3ZBxNmIrT1btE1EDt1qoqnbnhX0UMajvAlCJbwJON6yYErXiQw5PMul09+upC0MuZAiIIFXferdDpIdUbQpQT6+PJvWITmISvZiZ03jxmXCJD07o2e7SV6t+F9NpZe2HX0qQcHRbdSm9s6mqep840PlcoVnaO0bhfPMttVDNfwtjDDaJGiO+cwgHUWchb2W9jp/3dUxNBIiu0NDCF6OJd+BdfWTqtEESoHZGoJogc1a/z7yllTLEXuNUkz9D4UotSozR/qQ8q0WbiPIZh0D/V8ypkpL1y8FthT8MpE9yMpOy/EczZz96zjWL4rrDuFQTMRk95a9drx64CcnyF+4qSEN5rhU2HGLeiY0WCanurxCGBYeRBU7Sdyj8BsTlsMbMirtcc8DOVydsMfPFxphMQC2xVQmyt1LtB3qA/tNqHLX2jZWo++0+6Lc8A5kFDVMtb6PdZD06G3kBy7LoMKBHekg44nyBDyhAdnjt/VMuHCI+rAXJyywE4/IR8Q8IzEfWUSQG+1r5hJTDNWeCZCnDf8O6B1fBRFcSjD62/3z6WtutzjXOnH2e1HNM0m5+iI="
+    # Quay pass
+    - secure: "WrrueTX9/coheAqOYfmV1VB4dtVyz90ZMWXUPb47z7s4owXcANNz8Cm75ynhnNZ1YmsO2AQw0trXXosG4wxUMsq1Ku/Ki0zmh4CG5MBlgpsvYQlpSWitv9IT4Z9xcl0iIGgRWHN1ZHOkqhXUNYirzi/qi77KgjY8e/xaRtBlbdByhlxEMqrarAuyZ3JWVwg5h7TtyGgMx7U0tPzpWs+jaUAcowC3QXmfJ2BEglCq693WSsRH6/bUcFepoFuCdrcx5lDsKwV999ndNnUCoWMjhAPQmwc9ZThQc4HTT3pwROo6Q5pKtDjkM4d7CpsPP9GYIjmlOEneZW/rgyLwtsr3/K8UKTr2UBLOOkQ45oPc8ZxcUjF38d9218i8NK+wJoZ9gzWDanlF0O9dHDEs32b3WL+mUkdeiYbAymhysi1WknMeTIz80QVVoNY+7+5eCXlak9mvW78NM0Astxfpszwt9tFR5EDH9UEpfEDhJ/xfTQRJbGvM7RaSc7bmvHv2fTbHBjiT+yNQ8CR/mB1m5ntaekRoZKdMHj1yuh5SIFkMS0jpBSkG6ufPWcuMAETs2pUy04LPLpO68ya7EMFeZuvQlNZJ/ScG4s1Wbulsr00X9iJD1nb94NbZZHRX8HSpCcIbNoDcAaggg6WKzuuNvq4JT3Xb/y0mRTMcFvrhJ8i/vPo="
 
 script:
 - make -e docker-build docker-images
