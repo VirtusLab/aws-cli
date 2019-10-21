@@ -11,3 +11,9 @@ Needed until official support is there: [aws-cli/issues/3553](https://github.com
 ```bash
 make docker-run
 ```
+
+### Docler pull
+
+```bash
+docker pull quay.io/virtuslab/aws-cli
+```
