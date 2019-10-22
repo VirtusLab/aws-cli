@@ -9,7 +9,7 @@ NAME := aws-cli
 REPO := virtuslab/aws-cli
 DOCKER_REGISTRY := quay.io
 VERSION := 1.16.263
-EXTENDED_VERSION := "-2"
+EXTENDED_VERSION := -2
 
 GITCOMMIT := $(shell git rev-parse --short HEAD)
 GITBRANCH := $(shell git rev-parse --abbrev-ref HEAD)
