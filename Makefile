@@ -9,6 +9,7 @@ NAME := aws-cli
 REPO := virtuslab/aws-cli
 DOCKER_REGISTRY := quay.io
 VERSION := 1.16.263
+EXTENDED_VERSION := "-2"
 
 GITCOMMIT := $(shell git rev-parse --short HEAD)
 GITBRANCH := $(shell git rev-parse --abbrev-ref HEAD)
@@ -27,7 +28,7 @@ LATEST_TAG := $(GITCOMMIT)
 
 ifneq ($(TRAVIS_TAG),)
 	override DETAILED_TAG := $(TRAVIS_TAG)-$(GITCOMMIT)-$(VERSION)
-	override VERSION_TAG := $(VERSION)
+	override VERSION_TAG := $(VERSION)$(EXTENDED_VERSION)
 	override LATEST_TAG := latest
 endif
 
