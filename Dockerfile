@@ -3,6 +3,10 @@ FROM debian:stable-slim
 # The AWS CLI version to install
 ARG AWS_CLI_VERSION
 
+ARG USER=user
+ARG UID=1000
+ARG GID=1000
+
 # Disable prompts from apt.
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -53,6 +57,13 @@ RUN \
        /tmp/* \
        /var/tmp/*
 
-VOLUME /root/.aws
+# setup user
+RUN \
+    groupadd -g $GID $USER \
+    && useradd -u $UID -g $GID -ms /bin/bash $USER
+USER $USER
 
+VOLUME /home/$USER/.aws
+
+WORKDIR /home/$USER
 ENTRYPOINT ["bash"]
