@@ -83,8 +83,8 @@ docker-run: docker-build ## Build and run the container, you can use EXTRA_ARGS
 .PHONY: tag
 tag: ## Create a new git tag to prepare to build a release
 	@echo "+ $@"
-	git tag -a $(VERSION) -m "$(VERSION)"
-	git push origin $(VERSION)
+	git tag -a $(VERSION)$(EXTENDED_VERSION) -m "$(VERSION)$(EXTENDED_VERSION)"
+	git push origin $(VERSION)$(EXTENDED_VERSION)
 
 .PHONY: help
 help:
@@ -93,7 +93,7 @@ help:
 .PHONY: status
 status: ## Shows git and dep status
 	@echo "+ $@"
-	@echo "Commit: $(GITCOMMIT), VERSION: $(VERSION)"
+	@echo "Commit: $(GITCOMMIT), VERSION: $(VERSION)$(EXTENDED_VERSION)"
 	@echo
 	@echo "DETAILED_TAG: $(DETAILED_TAG)"
 	@echo "VERSION_TAG: $(VERSION_TAG)"
